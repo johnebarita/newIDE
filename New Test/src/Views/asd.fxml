@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Asd">
+   <children>
+      <ScrollPane fx:id="scroller" centerShape="false" layoutX="128.0" layoutY="46.0" prefHeight="649.0" prefWidth="762.0" scaleShape="false" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="46.0">
+         <content>
+            <Group fx:id="scrollContent">
+               <children>
+                  <StackPane fx:id="zoomPane" layoutX="-1976.0" layoutY="-873.0" onMouseDragged="#handlePan" onMousePressed="#getCenterPoint" onScroll="#zoomController" prefHeight="643.0" prefWidth="754.0">
+                     <children>
+                        <Group fx:id="group">
+                           <children>
+                              <ImageView fx:id="imageView" fitHeight="643.0" fitWidth="753.0" layoutX="-263.0" layoutY="-95.0" pickOnBounds="true" preserveRatio="true" />
+                              <Canvas fx:id="canvas" height="638.0" layoutX="-262.0" layoutY="-92.0" width="752.0">
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
+                              </Canvas>
+                           </children>
+                        </Group>
+                     </children>
+                  </StackPane>
+               </children>
+            </Group>
+         </content>
+      </ScrollPane>
+      <Button fx:id="loadImage" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#loadImage" text="Load Image" AnchorPane.leftAnchor="14.0" />
+      <Button fx:id="scale" layoutX="106.0" layoutY="8.0" mnemonicParsing="false" text="Scale" />
+      <Button fx:id="length" layoutX="162.0" layoutY="8.0" mnemonicParsing="false" text="Length" />
+      <Button fx:id="area" layoutX="221.0" layoutY="8.0" mnemonicParsing="false" text="Area" />
+      <Button fx:id="save" layoutX="269.0" layoutY="8.0" mnemonicParsing="false" text="Save" />
+      <VBox layoutX="14.0" layoutY="46.0" prefHeight="468.0" prefWidth="92.0" spacing="10.0">
+         <children>
+            <ToggleButton fx:id="drowbtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Draw">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tools" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton fx:id="rubberbtn" contentDisplay="CENTER" lineSpacing="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Eraser" toggleGroup="$tools" />
+            <ToggleButton fx:id="linebtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Line" toggleGroup="$tools" />
+            <ToggleButton fx:id="rectbtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Rectangle" toggleGroup="$tools" />
+            <ToggleButton fx:id="circlebtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Circle" toggleGroup="$tools" />
+            <ToggleButton fx:id="elpslebtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Elipse" toggleGroup="$tools" />
+            <Button fx:id="undo" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Undo" />
+            <Button fx:id="redo" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Redo" />
+            <Label text="Line Color" />
+            <ColorPicker fx:id="cpLine" prefHeight="26.0" prefWidth="92.0" />
+            <Label text="Fill Color" />
+            <ColorPicker fx:id="cpFill" promptText="test" />
+            <Label fx:id="line_width" text="3.0" />
+            <Slider fx:id="slider" max="50.0" min="1.0" prefWidth="92.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="3.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

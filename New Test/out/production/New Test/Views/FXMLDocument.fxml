@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="453.0" prefWidth="652.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.FXMLDocumentController">
+<children>
+    <ToolBar orientation="VERTICAL" prefHeight="453.0" prefWidth="116.0">
+        <items>
+            <Button fx:id="rectButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#setRectangleAsCurrentShape" text="Rectangulo" />
+            <Button fx:id="lineButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#setLineAsCurrentShape" text="Linea" />
+            <Button fx:id="ovlButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#setOvalAsCurrentShape" prefHeight="25.0" prefWidth="42.0" text="Ovalo" />
+            <Button fx:id="pencButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#setFreeDesign" text="Lapiz" />
+            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Eraser">
+                <items>
+                    <MenuItem fx:id="eraser" mnemonicParsing="false" onAction="#setErase" text="Eraser" />
+                    <MenuItem fx:id="clean" mnemonicParsing="false" onAction="#clearCanvas" text="Clear" />
+                </items>
+            </MenuButton>
+            <ColorPicker fx:id="colorPick" prefHeight="25.0" prefWidth="86.0" />
+            <RadioButton fx:id="strokeRB" mnemonicParsing="false" selected="true" text="Stroke">
+                <toggleGroup>
+                    <ToggleGroup fx:id="shapes" />
+                </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="fillRB" mnemonicParsing="false" text="Fill" toggleGroup="$shapes" />
+            <Slider fx:id="sizeSlider" prefHeight="14.0" prefWidth="59.0" />
+        </items>
+    </ToolBar>
+    <Canvas fx:id="canvasGo" height="453.0" layoutX="107.0" onMouseDragged="#onMouseDraggedListener" onMouseExited="#onMouseExitedListener" onMousePressed="#onMousePressedListener" onMouseReleased="#onMouseReleaseListener" width="546.0" />
+      <ScrollPane layoutX="116.0" layoutY="7.0" prefHeight="445.0" prefWidth="537.0">
+         <content>
+          <Canvas fx:id="TheCanvas" height="453.0" width="546.0" />
+         </content>
+      </ScrollPane>
+</children>
+</AnchorPane>
